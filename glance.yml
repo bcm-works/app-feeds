@@ -1,3 +1,13 @@
+theme:
+  background-color: 0 0 100
+  primary-color: 172 13.7 22.7
+  contrast-multiplier: 1.2
+  disable-picker: true
+
+branding:
+  hide-footer: true
+  hide-header: true
+
 pages:
   - name: Feeds
     hide-desktop-navigation: true
@@ -8,7 +18,7 @@ pages:
             first-day-of-week: monday
 
           - type: weather
-            location: Sydney, NSW, Australia
+            location: Sydney, Australia
             units: metric
             hour-format: 12h
             # hide-location: true
