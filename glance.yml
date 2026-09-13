@@ -1,6 +1,6 @@
 theme:
-  background-color: 0 0 100
-  primary-color: 172 13.7 22.7
+  background-color: 0 0 0
+  primary-color: 172 69.8 45.5
   contrast-multiplier: 1.2
   disable-picker: true
 
