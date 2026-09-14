@@ -23,13 +23,12 @@ services:
   app-feeds-db:
     container_name: app-feeds-db
     image: postgres:18
-    user: "root"
     ports:
       - "5432:5432"
     networks:
       - app-feeds-network
     volumes:
-      - ./storage:/var/lib/postgresql
+      - app-feeds-db-volume:/var/lib/postgresql
     env_file:
       - .env
     environment:
@@ -44,3 +43,6 @@ services:
 networks:
   app-feeds-network:
     name: app-feeds-network
+
+volumes:
+  app-feeds-db-volume:
