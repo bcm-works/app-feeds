@@ -4,7 +4,7 @@ Self-hosted version of the [Miniflux](https://miniflux.app/index.html) RSS feed 
 
 ## Local Setup
 
-- Copy [.env.example](.env.example) to `.env` (Git ignored) and edit as needed
+- Copy [.env.sample](.env.sample) to `.env` (Git ignored) and edit as needed
 - To start the Docker Containers, run: `docker compose up -d`
 - To stop the Docker Containers, run: `docker compose down`
 
