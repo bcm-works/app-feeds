@@ -4,6 +4,7 @@ Self-hosted version of the [Miniflux](https://miniflux.app/index.html) RSS feed 
 
 ## Local Setup
 
+- Install and run the `latest stable` version of [Docker](https://docker.com/)
 - Copy [.env.sample](.env.sample) to `.env` (Git ignored) and edit as needed
 - Then start the Docker Containers: `docker compose up -d`
 - Visit `http://localhost:8080` (or change `8080` to the number you set in the `PORT` variable)
@@ -20,7 +21,7 @@ Self-hosted version of the [Miniflux](https://miniflux.app/index.html) RSS feed 
 
 ## Infrastructure
 
-This project used [Railway](https://railway.com/) for infrastructure.
+This project uses [Railway](https://railway.com/) for infrastructure.
 
 Setup manually:
 
