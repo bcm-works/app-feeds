@@ -5,8 +5,13 @@ Self-hosted version of the [Miniflux](https://miniflux.app/index.html) RSS feed 
 ## Local Setup
 
 - Copy [.env.sample](.env.sample) to `.env` (Git ignored) and edit as needed
-- To start the Docker Containers, run: `docker compose up -d`
-- To stop the Docker Containers, run: `docker compose down`
+- Then start the Docker Containers: `docker compose up -d`
+- Visit `http://localhost:8080` (or change `8080` to the number you set in the `PORT` variable)
+
+## Commands
+
+- Start the Docker Containers: `docker compose up -d`
+- Stop the Docker Containers: `docker compose down`
 
 ## Links
 
