@@ -1,0 +1,42 @@
+name: app-feeds
+
+services:
+  app-feeds-miniflux:
+    container_name: app-feeds-miniflux
+    image: miniflux/miniflux:latest
+    depends_on:
+      app-feeds-db:
+        condition: service_healthy
+    ports:
+      - "${PORT:-3210}:8080"
+    networks:
+      - app-feeds-network
+    env_file:
+      - .env
+    environment:
+      - DATABASE_URL="postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@app-feeds-db/miniflux?sslmode=disable"
+      - RUN_MIGRATIONS=1
+      - CREATE_ADMIN=1
+      - ADMIN_USERNAME="${ADMIN_USERNAME}"
+      - ADMIN_PASSWORD="${ADMIN_PASSWORD}"
+
+  app-feeds-db:
+    container_name: app-feeds-db
+    image: postgres:18
+    user: "root"
+    networks:
+      - app-feeds-network
+    volumes:
+      - ./storage:/var/lib/postgresql
+    environment:
+      - POSTGRES_USER="${POSTGRES_USER}"
+      - POSTGRES_PASSWORD="${POSTGRES_PASSWORD}"
+      - POSTGRES_DB=miniflux
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "miniflux"]
+      interval: 10s
+      start_period: 30s
+
+networks:
+  app-feeds-network:
+    name: app-feeds-network
