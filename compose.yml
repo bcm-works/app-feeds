@@ -8,13 +8,13 @@ services:
       app-feeds-db:
         condition: service_healthy
     ports:
-      - "${PORT:-3210}:8080"
+      - ${PORT:-8080}:8080
     networks:
       - app-feeds-network
     env_file:
       - .env
     environment:
-      - DATABASE_URL="postgres://miniflux:${POSTGRES_PASSWORD}@app-feeds-db:5432/miniflux?sslmode=disable"
+      - DATABASE_URL=postgres://miniflux:${POSTGRES_PASSWORD}@app-feeds-db:5432/miniflux?sslmode=disable
       - RUN_MIGRATIONS=1
       - CREATE_ADMIN=1
       - ADMIN_USERNAME=${ADMIN_USERNAME}
